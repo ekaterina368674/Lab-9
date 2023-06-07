@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Main page</title>
+    <title>Steps Page</title>
 </head>
-<body>
-<h2>Messages</h2>
-<form method="post" action="/add_message">
-    <input type="text" name="text">
-    <input type="text" name="tag">
-    <button type="submit">Add post</button>
+<body bgcolor="B6EFD4">
+<h2 style="color:#5A2A27">Steps</h2>
+<form method="post" action="/add_step">
+    <b style="color:#2F4550">Steps: </b><input type="text" name="step"><br>
+    <b style="color:#2F4550">Date: </b><input type="date" name="date"><br>
+    <button type="submit">Add steps note</button>
 </form>
 
-<h3>Messages feed</h3>
-{% for message in messages %}
-<div>{{ message.text }}
-    {% for tag in message.tags %}
-        <b>#{{ tag.text }}</b>
-    {% endfor %}
+<h3 style="color:#5A2A27">Steps history</h3>
+{% for step in stepsnote %}
+<div style="color:#2F4550">
+    <b>{{ step.steps }}</b><br>
+    <i>{{ step.date }}</i>
 </div>
 {% endfor %}
+<a href="/delete_all"><button>Clear</button></a>
 
 </body>
 </html>
